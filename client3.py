@@ -20,6 +20,7 @@
 
 import json
 import random
+from typing import Tuple
 import urllib.request
 
 # Server API URLs
@@ -29,8 +30,8 @@ QUERY = "http://localhost:8080/query?id={}"
 N = 500
 
 
-def getDataPoint(quote):
-    """ Produce all the needed values to generate a datapoint """
+def getDataPoint(quote) -> Tuple[str, float, float, float]:
+    """ Produce all the needed values to generate a datapoint """ 
     stock = quote['stock']
     bid_price = float(quote['top_bid']['price'])
     ask_price = float(quote['top_ask']['price'])
